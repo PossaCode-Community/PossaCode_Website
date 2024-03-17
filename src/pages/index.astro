@@ -1,16 +1,36 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import ThemeToggle from '@/components/ThemeToggle.astro'
 ---
 
 <BaseLayout>
-  <div
-    class="flex h-screen w-full flex-col items-center justify-center space-y-10">
-    <h1 class="text-center text-4xl font-bold text-slate-900 dark:text-white">
-      Possa<span class="text-orange-700">Code</span>
-      <br />
-      <span class="mt-10 inline-block animate-bounce">⚙️</span>
-    </h1>
-    <ThemeToggle />
-  </div>
+  <section id="hero" class="flex min-h-screen w-full flex-col justify-between">
+    <div
+      class="container flex h-full flex-1 justify-center pt-44 md:items-center md:pt-0">
+      <div class="flex flex-col items-center space-y-16">
+        <h1
+          class="text-center text-3xl font-bold uppercase text-white md:text-7xl">
+          Possa<span class="text-orange">Code</span>, une communauTé <br
+            class="hidden md:block"
+          /> des développeurs en Afrique
+        </h1>
+        <p class="max-w-3xl text-center tracking-wider text-white">
+          © dynamique dédiée à la formation et à l'organisation d'événements de
+          rencontre pour les développeurs en Afrique.
+        </p>
+      </div>
+    </div>
+    <div class="w-full bg-slate-900/40 py-8">
+      <div class="container">ggaga</div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  #hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.596), rgba(0, 0, 0, 0.61)),
+      url('/src/content/images/hero-bg.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+</style>

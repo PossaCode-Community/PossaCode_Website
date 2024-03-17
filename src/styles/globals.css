@@ -33,6 +33,10 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --dark-blue: 231, 51%, 21%;
+    --clr-orange: 17, 89%, 50%;
+    --font-inter: 'Inter Variable', sans-serif;
   }
 
   .dark {
@@ -70,13 +74,18 @@
   * {
     @apply border-border;
   }
+
+  html,
   body {
-    @apply bg-background text-foreground;
+    @apply h-full;
+  }
+  body {
+    @apply font-inter bg-background text-foreground;
   }
 }
 
 @layer utilities {
   .themeToggle {
-    @apply relative flex w-[80px] items-center justify-between rounded-full border-2 border-[#E54D2E] bg-[rgba(229,77,46,0.16)] px-3 before:absolute before:left-[1px] before:m-1 before:h-[30px] before:w-[30px] before:rounded-full before:bg-[#E54D2E] before:transition before:duration-500 before:ease-in-out dark:before:translate-x-9;
+    @apply relative flex h-[34px] w-[71px] items-center justify-between rounded-full border-2 border-[#E54D2E] bg-[rgba(229,77,46,0.16)] px-2 before:absolute before:left-[-1.5px]  before:m-1 before:h-[26px] before:w-[26px] before:rounded-full before:bg-[#E54D2E] before:transition before:duration-500 before:ease-in-out dark:before:translate-x-[35px];
   }
 }
