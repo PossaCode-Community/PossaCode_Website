@@ -44,7 +44,7 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
       <div class="bg-slate-900/40 py-5">
         <ul
           role="list"
-          class="container grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+          class="container grid w-full grid-cols-2 gap-4 md:grid-cols-4">
           {
             communityGoals.map((goal, index) => (
               <CardGoal goal={goal} index={index} />
@@ -141,11 +141,11 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
 
   <section id="agir-avec-nous">
     <div
-      class="bg-[#1A2251] px-4 py-16 text-white lg:container lg:rounded-[49px] lg:p-28">
+      class="bg-[#1A2251] px-6 py-16 text-white lg:container lg:rounded-[49px] lg:p-28">
       <div class="relative flex flex-col items-center gap-10 lg:flex-row">
         <div class="relative flex-1 space-y-10 md:space-y-16">
           <h2
-            class="relative inline-block text-healding-2 text-white after:absolute after:bottom-0 after:left-0 after:h-1 after:w-1/2 after:bg-white">
+            class="relative inline-block text-healding-2 font-semibold text-white after:absolute after:bottom-0 after:left-0 after:h-1 after:w-1/2 after:bg-white">
             AGIR AVEC NOUS
           </h2>
 
@@ -218,7 +218,7 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
       <div class="actuality w-full">
         <div
           class="max-w-[290px] space-y-4 rounded-[30px] bg-[#1A2251] px-[30px] py-[50px] text-white md:max-w-[607px] md:p-14">
-          <h3 class="max-w-sm text-xl uppercase md:text-4xl">
+          <h3 class="max-w-sm text-xl font-semibold uppercase md:text-4xl">
             Le programme accroît la moyenne scolaire.
           </h3>
           <p class="text-sm">
@@ -239,11 +239,11 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
       </div>
 
       <!-- Events -->
-      <!-- TODO: Here will display latest events after generating them from the database -->
+      <!-- TODO: Here will display latest events after fetching them from the database -->
     </div>
   </section>
 
-  <section>
+  <section id="sponsors" class="pb-10 md:pb-44">
     <div class="container space-y-14 md:space-y-20">
       <h2 class="text-healding-2 font-semibold uppercase">
         Partenaires <span class="text-orange">&</span> Sponsors
@@ -251,10 +251,10 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
 
       <ul class="flex snap-x snap-mandatory gap-x-10 overflow-auto py-4">
         {
-          CommunityParteners.map((paterner) => (
+          CommunityParteners.map((parterner) => (
             <li class="flex-[0_0_200px] snap-center">
               <Image
-                src={paterner}
+                src={parterner}
                 alt="logo partenaire de PossaCode"
                 format="webp"
                 quality="high"
