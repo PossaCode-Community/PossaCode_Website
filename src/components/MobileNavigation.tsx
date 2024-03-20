@@ -9,7 +9,7 @@ export const MobileNavigation = () => {
     <Sheet>
       <SheetTrigger className="ml-6 lg:ml-0 lg:hidden">
         <svg
-          className="size-8 "
+          className="size-8 text-slate-900"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

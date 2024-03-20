@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets'
+
+const { value, index } = Astro.props
+---
+
+<div
+  class={`max-w-sm space-y-4 rounded-[49px] px-7 md:px-[45px] py-14 md:py-[65px]  ${index === 0 ? 'bg-[#F5A898] text-zinc-950' : index === 1 ? 'bg-[#E54D2E] text-white' : 'bg-[#1A2251] text-white'}`}>
+  <div class="flex items-center justify-between">
+    <h4 class="max-w-40 font-bold text-white">{value.title}</h4>
+    <Image
+      src={value.icon}
+      alt={value.title}
+      class="w-8"
+      loading="eager"
+      format="webp"
+    />
+  </div>
+  <p class="text-sm font-light">{value.content}</p>
+</div>

@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222, 47%, 11%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -37,10 +37,20 @@
     --dark-blue: 231, 51%, 21%;
     --clr-orange: 17, 89%, 50%;
     --font-inter: 'Inter Variable', sans-serif;
+    --healding-1: clamp(
+      1.875rem,
+      1.2003138075313808rem + 2.510460251046025vw,
+      3.75rem
+    );
+    --healding-2: clamp(
+      1.875rem,
+      1.6501046025104602rem + 0.8368200836820083vw,
+      2.5rem
+    );
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222, 47%, 11%;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -67,6 +77,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* --sx: hsl(222, 47%, 11%); */
   }
 }
 
@@ -80,12 +92,20 @@
     @apply h-full;
   }
   body {
-    @apply font-inter bg-background text-foreground;
+    @apply bg-background font-inter text-foreground;
+  }
+
+  section:not(section:is(#hero)) {
+    @apply pt-10 md:pt-44;
+  }
+
+  p {
+    @applymd:text-xl;
   }
 }
 
 @layer utilities {
   .themeToggle {
-    @apply relative flex h-[34px] w-[71px] items-center justify-between rounded-full border-2 border-[#E54D2E] bg-[rgba(229,77,46,0.16)] px-2 before:absolute before:left-[-1.5px]  before:m-1 before:h-[26px] before:w-[26px] before:rounded-full before:bg-[#E54D2E] before:transition before:duration-500 before:ease-in-out dark:before:translate-x-[35px];
+    @apply relative flex h-[34px] w-[71px] items-center justify-between rounded-full border-2 border-[#E54D2E] bg-[rgba(229,77,46,0.16)] px-2 before:absolute before:left-[-1.5px] before:m-1  before:h-[26px] before:w-[26px] before:rounded-full before:bg-[#E54D2E] before:transition before:duration-500 before:ease-in-out dark:before:translate-x-[35px];
   }
 }

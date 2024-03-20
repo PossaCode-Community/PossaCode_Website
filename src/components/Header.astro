@@ -1,22 +1,21 @@
 ---
 import { Image } from 'astro:assets'
 
-import NavLinks from '@/data/navLinks.json'
 import NavLink from '@/components/NavLink.astro'
 import ThemeToggle from '@/components/ThemeToggle.astro'
-
-import { buttonVariants } from '@/components/ui/button'
 import { MobileNavigation } from '@/components/MobileNavigation'
+import Button from '@/components/Button.astro'
 
-import PossaCodeLogoWhite from '@/content/images/possacode-logo-white.png'
-import { cn } from '@/lib/utils'
+import NavLinks from '@/data/navLinks.json'
+
+import PossaCodeWhiteLogo from '@/content/images/possacode-logo-white.png'
 ---
 
 <header class="fixed top-0 z-10 w-full py-4">
   <nav class="container flex items-center justify-between">
     <a href="/">
       <Image
-        src={PossaCodeLogoWhite}
+        src={PossaCodeWhiteLogo}
         alt="PossaCode logo"
         quality="high"
         format="webp"
@@ -26,19 +25,15 @@ import { cn } from '@/lib/utils'
     </a>
 
     <div class="flex items-center space-x-10">
-      <ul class="hidden items-center space-x-6 lg:flex">
+      <ul role="list" class="hidden items-center space-x-6 lg:flex">
         {NavLinks.map((navLink) => <NavLink {...navLink} />)}
       </ul>
+
       <ThemeToggle />
-      <a
-        href="/devenir-membre"
-        class={cn(
-          buttonVariants({
-            className: 'flex items-center justify-center',
-          }),
-          'rounded-[15px] bg-orange text-white hover:bg-[rgba(241,78,14,0.8)] hidden md:block'
-        )}>Devenir membre</a
-      >
+
+      <p class="hidden md:inline-block">
+        <Button href="./devenir-membre" text="Dévenir membre" />
+      </p>
       <MobileNavigation client:load />
     </div>
   </nav>
@@ -46,7 +41,7 @@ import { cn } from '@/lib/utils'
 
 <style>
   header {
-    @apply border-b-[0.5px] border-[#e7e7e7cc] bg-white/70 dark:border-slate-900/50 dark:bg-slate-900/70;
+    @apply border-b-[0.5px] border-slate-50 bg-white/70;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }

@@ -19,8 +19,8 @@ export const theme = {
       inter: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
-      'healding-1':
-        'clamp(2rem,1.9602510460251046rem + 2.00836820083682vw, 4rem)',
+      'healding-1': 'var(--healding-1)',
+      'healding-2': 'var(--healding-2)',
     },
     colors: {
       orange: 'hsl(var(--clr-orange))',
@@ -75,10 +75,16 @@ export const theme = {
         from: { height: 'var(--radix-accordion-content-height)' },
         to: { height: '0' },
       },
+      'ping-2': {
+        from: { translate: 'none' },
+        '50%': { translate: '0 -10px' },
+        to: { translate: 'none' },
+      },
     },
     animation: {
       'accordion-down': 'accordion-down 0.2s ease-out',
       'accordion-up': 'accordion-up 0.2s ease-out',
+      'ping-2': 'ping-2 2.5s ease-out infinite',
     },
   },
 }
