@@ -1,6 +1,10 @@
 ---
-import { MetaData } from '@/data/siteConfig'
 import '@/styles/globals.css'
+import '@fontsource-variable/inter'
+
+import { MetaData } from '@/data/siteConfig'
+import Header from '@/components/Header.astro'
+import { ViewTransitions } from 'astro:transitions'
 
 const {
   title = MetaData.title,
@@ -17,8 +21,10 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>

@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets'
+
+import CommunityIcon from '@/content/icons/community.png'
+import HandsIcon from '@/content/icons/hands.png'
+
+const { goal, index } = Astro.props
+---
+
+<li class="flex items-center space-x-4 text-white">
+  <Image
+    src={index === 0 ? CommunityIcon : HandsIcon}
+    alt={index === 0 ? 'Coummunity Icon' : 'Hands Icon'}
+    loading="eager"
+    format="webp"
+    quality="mid"
+    class="size-12"
+  />
+  <div class="flex flex-col space-y-0.5">
+    <span class="font-semibold text-orange">{goal.title}</span>
+    <span>{goal.content}</span>
+  </div>
+</li>

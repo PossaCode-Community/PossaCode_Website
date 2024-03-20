@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets'
+
+const { impact } = Astro.props
+---
+
+<li class="flex flex-col items-center space-y-4 md:items-start">
+  <Image
+    src={impact.icon}
+    alt={impact.text}
+    format="webp"
+    quality="mid"
+    class="size-12"
+  />
+  <span class="text-4xl font-semibold">{impact.total}</span>
+  <span class="inline-block max-w-28 text-center capitalize md:text-start">
+    {impact.text}
+  </span>
+</li>

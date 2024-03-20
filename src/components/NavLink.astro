@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Link = HTMLAttributes<'a'> & {
+  text: string
+}
+
+const { text, href, ...rest } = Astro.props as Link
+
+let isLinkActive: boolean = false
+
+if (!href) {
+  isLinkActive = false
+} else if (href === '/') {
+  isLinkActive = href === Astro.url.pathname
+} else {
+  isLinkActive = Astro.url.pathname.includes(
+    typeof href === 'string' ? href : href.href
+  )
+}
+---
+
+<li
+  {...rest}
+  aria-current={isLinkActive && 'page'}
+  class="cursor-pointer text-base text-slate-900 transition-colors hover:text-orange">
+  <a
+    href={href}
+    class:list={{ 'text-orange': isLinkActive }}
+    aria-label={`Go to ${text} page`}>{text}</a
+  >
+</li>

@@ -1,0 +1,21 @@
+---
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
+
+type Props = {
+  href: string
+  text: string
+  className?: string
+}
+
+const { href, text, className } = Astro.props
+---
+
+<a
+  href={href}
+  class={cn(
+    buttonVariants({}),
+    'rounded-[15px] bg-orange text-white hover:bg-[rgba(241,78,14,0.8)] cursor-pointer',
+    className
+  )}>{text}</a
+>
