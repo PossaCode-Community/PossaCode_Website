@@ -96,7 +96,7 @@
   }
 
   section:not(section:is(#hero)) {
-    @apply pt-10 md:pt-44;
+    @apply pt-24 md:pt-44;
   }
 
   p {
