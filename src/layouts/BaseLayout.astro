@@ -1,10 +1,12 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
+
 import '@/styles/globals.css'
 import '@fontsource-variable/inter'
 
 import { MetaData } from '@/data/siteConfig'
 import Header from '@/components/Header.astro'
-import { ViewTransitions } from 'astro:transitions'
+import Footer from '@/components/Footer.astro'
 
 const {
   title = MetaData.title,
@@ -25,6 +27,9 @@ const {
   </head>
   <body>
     <Header />
-    <slot />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

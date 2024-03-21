@@ -16,8 +16,8 @@ const { goal, index } = Astro.props
     quality="mid"
     class="size-12"
   />
-  <div class="flex flex-col space-y-0.5">
+  <div class="flex flex-col space-y-0.5 text-sm md:text-base">
     <span class="font-semibold text-orange">{goal.title}</span>
-    <span>{goal.content}</span>
+    <span class="inline-block max-w-32">{goal.content}</span>
   </div>
 </li>

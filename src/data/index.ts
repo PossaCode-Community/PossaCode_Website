@@ -95,7 +95,4 @@ export const CommunityParteners = [
   GalsenDevLogo,
   DevCastLogo,
   CGDTLogo,
-  SFALogo,
-  GalsenDevLogo,
-  DevCastLogo,
 ]
