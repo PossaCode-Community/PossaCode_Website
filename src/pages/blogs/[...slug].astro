@@ -7,7 +7,7 @@ import { Image } from 'astro:assets'
 const { slug } = Astro.params
 
 if (!slug) {
-  return Astro.redirect('/')
+  return Astro.redirect('/blogs')
 }
 type Props = CollectionEntry<'blog'>
 
