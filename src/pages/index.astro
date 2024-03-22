@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 
 import BaseLayout from '@/layouts/BaseLayout.astro'
+
 import CardValue from '@/components/CardValue.astro'
 import CardImpact from '@/components/CardImpact.astro'
 import CardGoal from '@/components/CardGoal.astro'
@@ -300,7 +301,7 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
 
   section:is(#notre-actualité) .actuality {
     background-image: url('../content/images/actuality.png');
-    @apply rounded-[30px] p-3;
+    @apply rounded-[30px] bg-[67%] bg-no-repeat p-3;
   }
 
   section #partenairs {
