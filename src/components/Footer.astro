@@ -1,7 +1,133 @@
 ---
+import { Image } from 'astro:assets'
+import PossaCodeLogoBlue from '@/content/images/possacode-logo-blue.png'
+import LinkedIn from '@/content/icons/linkedin.svg'
+import XTwitter from '@/content/icons/x.svg'
+import Facebook from '@/content/icons/facebook.svg'
+import Instagram from '@/content/icons/instagram.svg'
+const footerLinks = [
+  {
+    title: 'Partenaires',
+    links: [
+      {
+        text: 'Galsen Dev',
+        href: '',
+      },
+      {
+        text: 'Devcast',
+        href: '',
+      },
+      {
+        text: 'GDT',
+        href: '',
+      },
+      {
+        text: 'SFA',
+        href: '',
+      },
+    ],
+  },
+  {
+    title: 'Liens Importants',
+    links: [
+      {
+        text: 'Intégrer la communauté',
+        href: '',
+      },
+      {
+        text: 'Collaboration',
+        href: '',
+      },
+      {
+        text: 'Soutenir',
+        href: '',
+      },
+    ],
+  },
+]
 
+const socialNetworks = [
+  {
+    icon: LinkedIn,
+    url: 'http://linkedin.com',
+  },
+  {
+    icon: XTwitter,
+    url: 'http://x.com',
+  },
+  {
+    icon: Facebook,
+    url: 'http://www.facebook.com',
+  },
+  {
+    icon: Instagram,
+    url: 'http://www.instagram.com',
+  },
+]
 ---
 
-<footer class="bg-[#1A2251] py-40">
-  <div class="container">A</div>
+<footer class="bg-[#1A2251]">
+  <div
+    class="container flex flex-wrap justify-between gap-x-52 gap-y-14 py-16 md:py-24">
+    <a href="/">
+      <Image
+        src={PossaCodeLogoBlue}
+        alt="POssaCode Logo blue"
+        format="webp"
+        quality="high"
+        loading="eager"
+      />
+    </a>
+
+    <ul role="list" class="flex flex-wrap gap-x-52 gap-y-14 text-white">
+      {
+        footerLinks.map(({ title, links }) => (
+          <li class="flex flex-col space-y-6">
+            <h4 class="text-2xl font-medium">{title}</h4>
+            <ul
+              role="list"
+              class="list-inside list-disc space-y-4 marker:text-orange">
+              {links.map((link) => (
+                <li class="decoration-white/20 hover:underline hover:underline-offset-8">
+                  <a href={link.href}>{link.text}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="space-y-6 text-white">
+      <h4 class="text-2xl font-medium">Résaux sociaux</h4>
+      <ul role="list" class="flex items-center space-x-6">
+        {
+          socialNetworks.map(({ url, icon: Icon }) => (
+            <li>
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={Icon}
+                  alt={`Logo of ${Icon}`}
+                  loading="lazy"
+                  quality="mid"
+                  class="opacity-80 transition-opacity  hover:opacity-100"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="w-full bg-black py-4">
+    <div class="container">
+      <p class="text-center text-sm text-white">
+        <a href="/conditions-generales" class="hover:underline"
+          >Conditions générales de la communauté</a
+        >
+        ©2021 - {new Date().getFullYear()}, PossaCode tous droits réservés
+      </p>
+    </div>
+  </div>
 </footer>
