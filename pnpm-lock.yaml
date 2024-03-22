@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.5.9
     version: 0.5.9(prettier-plugin-astro@0.13.0)(prettier@3.2.5)(typescript@5.4.2)
   '@astrojs/db':
-    specifier: ^0.9.3
-    version: 0.9.3(@types/react@18.2.66)(react@18.2.0)
+    specifier: ^0.9.4
+    version: 0.9.4(@types/react@18.2.66)(react@18.2.0)
   '@astrojs/netlify':
     specifier: ^5.1.3
     version: 5.1.3(astro@4.5.4)
@@ -129,8 +129,8 @@ packages:
   /@astrojs/compiler@2.7.0:
     resolution: {integrity: sha512-XpC8MAaWjD1ff6/IfkRq/5k1EFj6zhCNqXRd5J43SVJEBj/Bsmizkm8N0xOYscGcDFQkRgEw6/eKnI5x/1l6aA==}
 
-  /@astrojs/db@0.9.3(@types/react@18.2.66)(react@18.2.0):
-    resolution: {integrity: sha512-9cMfggdDr0U+sGGH0y6qppvw+sOx2JrJT+EVSRo784o7W/zxSJVeoZ+U46nsFN8l3BgRReUgUd4CRPObl15fKw==}
+  /@astrojs/db@0.9.4(@types/react@18.2.66)(react@18.2.0):
+    resolution: {integrity: sha512-CfBmFwnsQ+N/zOSvuEvAm6IxQpVAFqMla8uMqXgwvpHojLvkcqpPPKzNLDvuhSrSFaZjlqvt2m4gs4vhtYG2VA==}
     dependencies:
       '@libsql/client': 0.5.6
       async-listen: 3.0.1
