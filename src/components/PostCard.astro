@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+import Button from '@/components/Button.astro'
+
+export type Props = CollectionEntry<'blog'>
+
+const { data, slug } = Astro.props
+---
+
+<article
+  class="flex w-full flex-col gap-4 md:max-w-2xl md:flex-row md:items-center">
+  <div
+    class="relative h-[240px] w-full overflow-hidden rounded-[31px] lg:max-w-[289px]">
+    <Image
+      src={data.hero_image}
+      alt={data.hero_alt}
+      format="webp"
+      quality="high"
+      loading="eager"
+      class="h-full w-full object-cover"
+    />
+  </div>
+
+  <div class="flex flex-col space-y-4 py-4 md:h-full">
+    <h3 class="text-xl font-semibold uppercase text-[#F5A898]">{data.title}</h3>
+    <p class="flex-1 md:max-w-sm">{data.description}</p>
+    <Button
+      href={`/blogs/${slug}`}
+      text="Lire la suite"
+      className="text-semibold w-fit border border-orange bg-[#f5a798a6] text-orange hover:bg-[#f5a7986e] dark:text-white"
+    />
+  </div>
+</article>

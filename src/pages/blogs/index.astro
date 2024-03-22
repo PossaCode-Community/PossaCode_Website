@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content'
+
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import PostCard from '@/components/PostCard.astro'
+import { Image } from 'astro:assets'
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+)
+
+const { data } = posts[0]
+---
+
+<BaseLayout title="PossaCode - Blog">
+  <div class="container py-40">
+    <h2 class="text-healding-2 font-semibold uppercase">Evenements</h2>
+
+    <div class="w-full">
+      <dir class="relative mx-auto block w-full max-w-2xl overflow-hidden"
+        ><Image
+          src={data.hero_image}
+          alt={data.hero_alt}
+          loading="eager"
+          format="webp"
+          quality="high"
+          class="cover w-full rounded-xl"
+        /></dir
+      >
+    </div>
+
+    <div class="mt-10">
+      {
+        posts &&
+          posts.slice(1).map((post) => (
+            <a href={`/blogs/${post.slug}`}>
+              <PostCard {...post} />
+            </a>
+          ))
+      }
+    </div>
+  </div>
+</BaseLayout>
