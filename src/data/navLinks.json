@@ -5,14 +5,14 @@
   },
   {
     "text": "Qui sommes-nous?",
-    "href": "qui-sommes-nous"
+    "href": "/a-propos"
   },
   {
     "text": "Evenements",
-    "href": "evenements"
+    "href": "/blogs"
   },
   {
     "text": "Contact",
-    "href": "contact"
+    "href": "/contact"
   }
 ]

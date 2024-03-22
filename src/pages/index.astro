@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
 
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
@@ -8,6 +9,7 @@ import CardImpact from '@/components/CardImpact.astro'
 import CardGoal from '@/components/CardGoal.astro'
 import Code from '@/content/images/code.png'
 import Button from '@/components/Button.astro'
+import PostCard from '@/components/PostCard.astro'
 
 import {
   CTA_LINKS,
@@ -21,6 +23,10 @@ import PossaCodeAfrica from '@/content/images/possacode-africa.png'
 import TechoGroupeIcon1 from '@/content/images/techno-group-1.png'
 import TechoGroupeIcon2 from '@/content/images/techno-group-2.png'
 import PossaCodeMembers from '@/content/images/possacode-members.png'
+
+const LastPosts = (await getCollection('blog'))
+  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .slice(0, 4)
 ---
 
 <BaseLayout>
@@ -214,7 +220,7 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
   </section>
 
   <section id="notre-actualité">
-    <div class="container space-y-10">
+    <div class="container space-y-20">
       <h2 class="text-healding-2 font-semibold">NOS ACTUALITÉS</h2>
       <div class="actuality w-full">
         <div
@@ -239,8 +245,19 @@ import PossaCodeMembers from '@/content/images/possacode-members.png'
         </div>
       </div>
 
-      <!-- Events -->
-      <!-- TODO: Here will display latest events after fetching them from the database -->
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+        {LastPosts.map((post) => <PostCard {...post} />)}
+      </div>
+
+      {
+        LastPosts.length >= 4 && (
+          <Button
+            href="/blogs"
+            text="Toutes les actualisés"
+            className="mx-auto block w-fit"
+          />
+        )
+      }
     </div>
   </section>
 

@@ -92,7 +92,11 @@
     @apply h-full;
   }
   body {
-    @apply bg-background font-inter text-foreground;
+    @apply flex min-h-screen flex-col bg-background font-inter text-foreground;
+  }
+
+  ::selection {
+    @apply bg-orange text-white;
   }
 
   section:not(section:is(#hero)) {
