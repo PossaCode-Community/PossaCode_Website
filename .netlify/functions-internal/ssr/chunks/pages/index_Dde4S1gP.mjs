@@ -1,5 +1,5 @@
 import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, i as renderComponent, h as addAttribute } from '../astro_DUL18hxm.mjs';
-import { a as $$Image, b as $$Button, c as getCollection, $ as $$BaseLayout } from './__B3_Vygd6.mjs';
+import { a as $$Image, b as $$Button, c as getCollection, $ as $$BaseLayout } from './__Dd44erai.mjs';
 /* empty css                          */
 
 const $$Astro$5 = createAstro();

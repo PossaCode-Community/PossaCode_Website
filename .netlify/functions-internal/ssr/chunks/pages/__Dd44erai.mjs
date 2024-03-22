@@ -1360,8 +1360,8 @@ const $$BaseLayout = createComponent(async ($$result, $$props, $$slots) => {
   Astro2.self = $$BaseLayout;
   const {
     title = MetaData.title,
-    description = MetaData.description,
-    ogImage = MetaData.ogImage
+    description = MetaData.description
+    // ogImage = MetaData.ogImage,
   } = Astro2.props;
   return renderTemplate`<html lang="fr"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator"${addAttribute(Astro2.generator, "content")}><meta name="description"${addAttribute(description, "content")}><title>${title}</title>${renderComponent($$result, "ViewTransitions", $$ViewTransitions, {})}${renderHead()}</head> <body> ${renderComponent($$result, "Header", $$Header, {})} <main class="flex-grow"> ${renderSlot($$result, $$slots["default"])} </main> ${renderComponent($$result, "Footer", $$Footer, {})} </body></html>`;
 }, "C:/Users/blond/Documents/possacode-site/src/layouts/BaseLayout.astro", void 0);

@@ -1,5 +1,5 @@
 import { e as createAstro, f as createComponent, r as renderTemplate, i as renderComponent, m as maybeRenderHead, k as renderSlot, u as unescapeHTML } from '../astro_DUL18hxm.mjs';
-import { $ as $$BaseLayout } from './__B3_Vygd6.mjs';
+import { $ as $$BaseLayout } from './__Dd44erai.mjs';
 
 const $$Astro = createAstro();
 const $$ConditionLayout = createComponent(async ($$result, $$props, $$slots) => {
