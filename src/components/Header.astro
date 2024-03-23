@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 
 import NavLink from '@/components/NavLink.astro'
+// TODO: fixe the themetoggle bug
 // import ThemeToggle from '@/components/ThemeToggle.astro'
 import { MobileNavigation } from '@/components/MobileNavigation'
 import Button from '@/components/Button.astro'
@@ -29,6 +30,7 @@ import PossaCodeWhiteLogo from '@/content/images/possacode-logo-white.png'
         {NavLinks.map((navLink) => <NavLink {...navLink} />)}
       </ul>
 
+      <!-- TODO: -->
       <!-- <ThemeToggle /> -->
 
       <p class="hidden md:inline-block">
