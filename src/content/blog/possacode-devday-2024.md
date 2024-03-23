@@ -6,3 +6,7 @@ hero_alt: 'PossaCode DevDay 2024'
 pubDate: 2022-05-04
 updatedDate: 2023-06-04
 ---
+
+hsdhgcghsdahgfhgdfghfvjdfvjhgsfdjhfasjfjhsdjhfv
+
+![](/src/content/images/cgdt.png)
