@@ -24,7 +24,7 @@ import TechoGroupeIcon1 from '@/content/images/techno-group-1.png'
 import TechoGroupeIcon2 from '@/content/images/techno-group-2.png'
 import PossaCodeMembers from '@/content/images/possacode-members.png'
 
-const LastPosts = (await getCollection('blog'))
+const LastFourPosts = (await getCollection('blog'))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
   .slice(0, 4)
 ---
@@ -246,11 +246,11 @@ const LastPosts = (await getCollection('blog'))
       </div>
 
       <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
-        {LastPosts.map((post) => <PostCard {...post} />)}
+        {LastFourPosts.map((post) => <PostCard {...post} />)}
       </div>
 
       {
-        LastPosts.length >= 4 && (
+        LastFourPosts.length >= 2 && (
           <Button
             href="/blogs"
             text="Toutes les actualisés"

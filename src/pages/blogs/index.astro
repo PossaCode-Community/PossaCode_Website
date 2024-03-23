@@ -9,7 +9,7 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 )
 
-const { data } = posts[0]
+const { data: recentPost } = posts[0]
 ---
 
 <BaseLayout title="PossaCode - Blog">
@@ -19,8 +19,8 @@ const { data } = posts[0]
     <div class="w-full">
       <dir class="relative mx-auto block w-full max-w-2xl overflow-hidden"
         ><Image
-          src={data.hero_image}
-          alt={data.hero_alt}
+          src={recentPost.hero_image}
+          alt={recentPost.hero_alt}
           loading="eager"
           format="webp"
           quality="high"
