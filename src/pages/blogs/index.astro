@@ -2,41 +2,33 @@
 import { getCollection } from 'astro:content'
 
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import PostCard from '@/components/PostCard.astro'
-import { Image } from 'astro:assets'
+import ArticleCard from '@/components/ArticleCard.astro'
+import { a } from 'dist/_astro/index.pPQUlQQ7'
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 )
-
-const { data: recentPost } = posts[0]
 ---
 
 <BaseLayout title="PossaCode - Blog">
-  <div class="container py-40">
+  <div class="container max-w-6xl space-y-10 py-20 md:py-32">
     <h2 class="text-healding-2 font-semibold uppercase">Evenements</h2>
 
-    <div class="w-full">
-      <dir class="relative mx-auto block w-full max-w-2xl overflow-hidden"
-        ><Image
-          src={recentPost.hero_image}
-          alt={recentPost.hero_alt}
-          loading="eager"
-          format="webp"
-          quality="high"
-          class="cover w-full rounded-xl"
-        /></dir
-      >
-    </div>
+    <p>
+      L'extrait standard de Lorem Ipsum utilisé depuis le XVIè siècle est
+      reproduit ci-dessous pour les curieux. Les sections 1.10.32 et 1.10.33 du
+      "De Finibus Bonorum et Malorum" de Cicéron sont aussi reproduites dans
+      leur version originale, accompagnée de la traduction anglaise de H.
+      Rackham (1914).
+    </p>
 
-    <div class="mt-10">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
       {
-        posts &&
-          posts.slice(1).map((post) => (
-            <a href={`/blogs/${post.slug}`}>
-              <PostCard {...post} />
-            </a>
-          ))
+        posts.map((post) => (
+          <a href={`/blogs/${post.slug}`}>
+            <ArticleCard post={post} />
+          </a>
+        ))
       }
     </div>
   </div>

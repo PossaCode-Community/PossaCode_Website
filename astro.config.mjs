@@ -1,4 +1,5 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, sharpImageService } from 'astro/config'
+
 import react from '@astrojs/react'
 import netlify from '@astrojs/netlify'
 import tailwind from '@astrojs/tailwind'
@@ -24,4 +25,8 @@ export default defineConfig({
       },
     }),
   ],
+  image: {
+    service: sharpImageService(),
+  },
+  site: 'https://possacode.netlify.app/',
 })

@@ -1,15 +1,15 @@
 ---
 import { type CollectionEntry, getEntry } from 'astro:content'
 
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import { Image } from 'astro:assets'
+import BlogLayout from '@/layouts/BlogLayout.astro'
+
+type Props = CollectionEntry<'blog'>
 
 const { slug } = Astro.params
 
 if (!slug) {
   return Astro.redirect('/blogs')
 }
-type Props = CollectionEntry<'blog'>
 
 const post = await getEntry('blog', slug)
 
@@ -17,22 +17,11 @@ if (!post) {
   return Astro.redirect('/')
 }
 
+const { data } = post
+
 const { Content } = await post.render()
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
-  <div class="container py-40">
-    <Image
-      src={post.data.hero_image}
-      alt={post.data.title}
-      format="webp"
-      quality="high"
-      loading="eager"
-    />
-    <h2 class="text-healding-2 font-semibold uppercase">{post.data.title}</h2>
-
-    <p>{post.data.description}</p>
-
-    <Content />
-  </div>
-</BaseLayout>
+<BlogLayout data={data}>
+  <Content />
+</BlogLayout>

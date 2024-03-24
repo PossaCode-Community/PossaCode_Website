@@ -89,7 +89,7 @@
 
   html,
   body {
-    @apply h-full;
+    @apply h-full scroll-smooth;
   }
   body {
     @apply flex min-h-screen flex-col bg-background font-inter text-foreground;
@@ -103,8 +103,14 @@
     @apply pt-24 md:pt-44;
   }
 
-  p {
-    @applymd:text-xl;
+  article h3 {
+    @apply text-3xl font-semibold text-orange;
+  }
+  article ul {
+    @apply ml-4 list-inside list-disc marker:text-orange;
+  }
+  article #content a {
+    @apply underline decoration-orange underline-offset-2;
   }
 }
 

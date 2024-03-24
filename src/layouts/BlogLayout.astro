@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets'
+
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import type { FrontMatterProps } from '@/types'
+import Button from '@/components/Button.astro'
+import { Share2 } from 'lucide-react'
+
+const { data } = Astro.props as FrontMatterProps
+
+const { title, description } = data
+---
+
+<BaseLayout title={data.title} description={data.description}>
+  <article class="container max-w-4xl divide-y-2 py-20 md:py-32">
+    <div class="w-full space-y-4 py-6 text-center">
+      <Image
+        src={data.hero_image}
+        alt={data.hero_alt}
+        class="w-full rounded-3xl"
+      />
+
+      <h2 class="text-healding-2 font-semibold">{data.title}</h2>
+      <p>{data.description}</p>
+      <div class="flex items-center justify-center space-x-4 text-sm italic">
+        <span>{new Date(data.pubDate).toLocaleDateString()}</span>
+        <span>•</span>
+        {
+          data.updatedDate && (
+            <span> {new Date(data.updatedDate).toLocaleDateString()}</span>
+          )
+        }
+
+        <button id="share-btn">
+          <Share2 size={16} />
+        </button>
+      </div>
+    </div>
+
+    <div id="content" class="w-full space-y-6 py-10">
+      <slot />
+    </div>
+
+    <Button
+      href="/blogs/"
+      text="Retourner aux articles"
+      className="mx-auto block w-fit decoration-0"
+    />
+  </article>
+</BaseLayout>
+
+<script define:vars={{ title, description }}>
+  const shareBtn = document.querySelector('#share-btn')
+
+  const options = {
+    title: title,
+    text: description,
+    url: window.location.href,
+  }
+
+  shareBtn.addEventListener('click', async () => {
+    const isNavigatorCanShare = navigator.canShare(options)
+
+    if (isNavigatorCanShare) {
+      try {
+        await navigator.share(options)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  })
+</script>
