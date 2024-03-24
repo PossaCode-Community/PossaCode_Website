@@ -1,23 +1,13 @@
 ---
-import { db, Member } from 'astro:db'
+// import { db, Member } from 'astro:db'
 
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
-const members = await db.select().from(Member)
+// const members = await db.select().from(Member)
 ---
 
 <BaseLayout title="PossaCode - A propos">
   <div class="container py-40">
     <h2 class="text-healding-2 font-semibold uppercase">Qui sommes-nous ?</h2>
-
-    <div>
-      {members.map((member) => <h1>{member.profession}</h1>)}
-    </div>
-
-    <button
-      class="mt-10 rounded border bg-red-500 px-4 py-2 text-white"
-      onclick="throw new Error('Error Test ...!!!')">
-      Throw test error
-    </button>
   </div>
 </BaseLayout>

@@ -13,6 +13,8 @@ const { href, text, className } = Astro.props
 
 <a
   href={href}
+  aria-label={text}
+  aria-current={href === Astro.url.pathname ? 'page' : undefined}
   class={cn(
     buttonVariants({}),
     'rounded-[15px] bg-orange text-white hover:bg-[rgba(241,78,14,0.8)] cursor-pointer',
