@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets'
+
+import { LucideGithub, LucideLinkedin, Mail } from 'lucide-react'
+import { getGithubUserName, getUserInfos } from '@/lib/utils'
+
+const { member } = Astro.props
+const { github_url } = member
+
+const userName = getGithubUserName(github_url)
+const { avatar_url } = await getUserInfos(userName)
+---
+
+<div class="flex w-full flex-col items-center space-y-4">
+  <Image
+    src={avatar_url}
+    alt="PossaCode"
+    class="aspect-square size-36 rounded-full object-cover ring ring-orange ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
+    loading="eager"
+    width={200}
+    height={200}
+  />
+  <div class="text-center">
+    <p class="font-semibold">
+      {member.first_name}
+      {member.last_name}
+    </p>
+    <p>{member.role}</p>
+    <p class="text-sm">{member.profession}</p>
+  </div>
+
+  <di class="flex items-center space-x-4">
+    <a href={member.linkedin_url}>
+      <LucideLinkedin size={20} />
+    </a>
+    <a href={member.github_url}>
+      <LucideGithub size={20} />
+    </a>
+    <a href={`mailto:${member.email}`}>
+      <Mail size={20} />
+    </a>
+  </di>
+</div>

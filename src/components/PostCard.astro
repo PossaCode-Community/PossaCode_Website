@@ -9,10 +9,10 @@ export type Props = CollectionEntry<'blog'>
 const { data, slug } = Astro.props
 ---
 
-<article
+<div
   class="flex w-full flex-col gap-4 md:max-w-2xl md:flex-row md:items-center">
   <div
-    class="relative h-[240px] w-full overflow-hidden rounded-[31px] lg:max-w-[289px]">
+    class="relative h-[200px] w-full overflow-hidden rounded-[31px] lg:max-w-[289px]">
     <Image
       src={data.hero_image}
       alt={data.hero_alt}
@@ -32,4 +32,4 @@ const { data, slug } = Astro.props
       className="text-semibold w-fit border border-orange bg-[#f5a798a6] text-orange hover:bg-[#f5a7986e] dark:text-white"
     />
   </div>
-</article>
+</div>

@@ -3,6 +3,7 @@ import * as SheetPrimitive from '@radix-ui/react-dialog'
 import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
+import CloseIcon from '@/assets/icons/close-menu.png'
 
 const Sheet = SheetPrimitive.Root
 
@@ -63,7 +64,7 @@ const SheetContent = React.forwardRef<
     >
       {children}
       <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm ring-offset-background transition-opacity  focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
-        <img src="./icons/close-menu.png" alt="close the menu" />
+        <img src={CloseIcon.src} width={CloseIcon.width} alt="close the menu" />
         <span className="sr-only">Close</span>
       </SheetPrimitive.Close>
     </SheetPrimitive.Content>
