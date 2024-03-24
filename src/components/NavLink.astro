@@ -27,6 +27,8 @@ if (!href) {
   <a
     href={href}
     class:list={{ 'text-orange': isLinkActive }}
-    aria-label={`Go to ${text} page`}>{text}</a
-  >
+    aria-current={isLinkActive ? 'page' : undefined}
+    aria-label={`Go to ${text} page`}>
+    {text}
+  </a>
 </li>
