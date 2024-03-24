@@ -1,4 +1,4 @@
-import { defineConfig, passthroughImageService } from 'astro/config'
+import { defineConfig, sharpImageService } from 'astro/config'
 
 import react from '@astrojs/react'
 import netlify from '@astrojs/netlify'
@@ -26,7 +26,6 @@ export default defineConfig({
     }),
   ],
   image: {
-    service: passthroughImageService(),
+    service: sharpImageService(),
   },
-  site: 'https://possacode.netlify.app/',
 })
