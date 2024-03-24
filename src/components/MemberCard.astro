@@ -12,9 +12,9 @@ const { avatar_url } = await getUserInfos(userName)
 ---
 
 <div class="flex w-full flex-col items-center space-y-4">
-  <Image
+  <img
     src={avatar_url}
-    alt="PossaCode"
+    alt={member.first_name}
     class="aspect-square size-36 rounded-full object-cover ring ring-orange ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
     loading="eager"
     width={200}
