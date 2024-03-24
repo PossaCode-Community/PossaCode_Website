@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content'
 
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ArticleCard from '@/components/ArticleCard.astro'
-import { a } from 'dist/_astro/index.pPQUlQQ7'
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -11,10 +10,10 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <BaseLayout title="PossaCode - Blog">
-  <div class="container max-w-6xl space-y-10 py-20 md:py-32">
+  <div class="container max-w-6xl py-32">
     <h2 class="text-healding-2 font-semibold uppercase">Evenements</h2>
 
-    <p>
+    <p class="my-6">
       L'extrait standard de Lorem Ipsum utilisé depuis le XVIè siècle est
       reproduit ci-dessous pour les curieux. Les sections 1.10.32 et 1.10.33 du
       "De Finibus Bonorum et Malorum" de Cicéron sont aussi reproduites dans
