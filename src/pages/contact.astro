@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
+
+import { MetaData } from '@/data/siteConfig'
 ---
 
-<BaseLayout title="PossaCode - Contact">
+<BaseLayout title={`Contact - ${MetaData.title}`}>
   <div class="container py-40">
     <h2 class="text-healding-2 font-semibold uppercase">Contact</h2>
   </div>
