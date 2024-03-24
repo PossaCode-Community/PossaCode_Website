@@ -2,9 +2,11 @@
 import { Image } from 'astro:assets'
 
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { MetaData } from '@/data/siteConfig'
-import HeroImage from '@/content/images/hero-bg.png'
 import MemberCard from '@/components/MemberCard.astro'
+
+import { MetaData } from '@/data/siteConfig'
+
+import HeroImage from '@/content/images/hero-bg.png'
 
 const response = await fetch(`${Astro.url.origin}/api/get-members.json`)
 
@@ -14,7 +16,7 @@ const members = await response.json()
 <BaseLayout title={`A propos - ${MetaData.title}`}>
   <div class="relative flex h-[250px] items-center justify-center md:h-[350px]">
     <h2
-      class="absolute z-10 text-center text-healding-2 font-semibold uppercase text-white">
+      class="absolute z-10 mt-10 text-center text-healding-2 font-semibold uppercase text-white">
       Qui sommes-nous ?
     </h2>
 
@@ -59,7 +61,8 @@ const members = await response.json()
     <div class="space-y-10">
       <h2 class="text-healding-2 font-semibold uppercase">Notre equipe</h2>
 
-      <div class="grid grid-cols-[repeat(auto-fill,_minmax(260px,_1fr))] gap-8">
+      <div
+        class="grid grid-cols-[repeat(auto-fill,_minmax(260px,_1fr))] gap-10">
         {members.map((member: any) => <MemberCard member={member} />)}
       </div>
     </div>
