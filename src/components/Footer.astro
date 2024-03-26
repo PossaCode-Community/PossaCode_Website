@@ -1,10 +1,12 @@
 ---
 import { Image } from 'astro:assets'
+
 import PossaCodeLogoBlue from '@/content/images/possacode-logo-blue.png'
 import LinkedIn from '@/content/icons/linkedin.svg'
 import XTwitter from '@/content/icons/x.svg'
 import Facebook from '@/content/icons/facebook.svg'
 import Instagram from '@/content/icons/instagram.svg'
+
 const footerLinks = [
   {
     title: 'Partenaires',
@@ -12,35 +14,43 @@ const footerLinks = [
       {
         text: 'Galsen Dev',
         href: 'https://galsen.dev/',
+        external: true,
       },
       {
         text: 'Devcast',
         href: 'https://devscast.tech/',
+        external: true,
       },
       {
         text: 'GDT',
         href: '',
+        external: true,
       },
       {
         text: 'SFA',
         href: '',
+        external: true,
       },
     ],
   },
+
   {
     title: 'Liens Importants',
     links: [
       {
         text: 'Intégrer la communauté',
         href: '',
+        external: false,
       },
       {
         text: 'Collaboration',
         href: '',
+        external: false,
       },
       {
         text: 'Soutenir',
         href: '',
+        external: false,
       },
     ],
   },
@@ -89,7 +99,12 @@ const socialNetworks = [
               class="list-inside list-disc space-y-4 text-sm text-white/95 marker:text-orange">
               {links.map((link) => (
                 <li class="decoration-white/20 hover:underline hover:underline-offset-8">
-                  <a href={link.href}>{link.text}</a>
+                  <a
+                    href={link.href}
+                    target={link.external ? '_blank' : ''}
+                    rel="noopener noreferrer">
+                    {link.text}
+                  </a>
                 </li>
               ))}
             </ul>

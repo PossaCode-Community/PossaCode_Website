@@ -1,0 +1,76 @@
+---
+import { SEO } from 'astro-seo'
+
+import { MetaData } from '@/data/siteConfig'
+
+type Props = {
+  title?: string | undefined
+  description?: string | undefined
+  ogImage?: URL | undefined
+}
+
+const { openGraph } = MetaData
+
+const canonicalURL = new URL(Astro.url).href
+
+if (Astro.props.ogImage === undefined) {
+  Astro.props.ogImage = new URL(openGraph.image.src, Astro.url)
+}
+
+const {
+  title = MetaData.title,
+  description = MetaData.description,
+  ogImage,
+} = Astro.props
+---
+
+<SEO
+  title={title}
+  description={description}
+  openGraph={{
+    basic: {
+      title: openGraph.title,
+      type: openGraph.type,
+      image: String(ogImage),
+      url: canonicalURL,
+    },
+  }}
+  twitter={{
+    creator: MetaData.twitter,
+  }}
+  extend={{
+    link: [
+      {
+        rel: 'shortcut icon',
+        type: 'image/svg+xml',
+        href: '/favicon.svg',
+      },
+
+      { rel: 'sitemap', href: '/sitemap-index.xml' },
+    ],
+
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+
+      { name: 'og:description', content: description },
+
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:url', content: String(canonicalURL) },
+      { name: 'twitter:title', content: openGraph.title },
+      { name: 'twitter:description', content: MetaData.description },
+      { name: 'twitter:image', content: String(ogImage) },
+      { name: 'twitter:creator', content: MetaData.twitter },
+      { name: 'twitter:site', content: MetaData.site },
+
+      { name: 'author', content: MetaData.twitter },
+      {
+        name: 'keywords',
+        content: 'Community, development, programming, coding, tech,',
+      },
+      { name: 'generator', content: Astro.generator },
+
+      { name: 'robots', content: 'index, follow' },
+      { name: 'googlebot', content: 'index, follow' },
+    ],
+  }}
+/>

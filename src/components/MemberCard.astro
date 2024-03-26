@@ -1,19 +1,12 @@
 ---
-import { Image } from 'astro:assets'
-
 import { LucideGithub, LucideLinkedin, Mail } from 'lucide-react'
-import { getGithubUserName, getUserInfos } from '@/lib/utils'
 
 const { member } = Astro.props
-const { github_url } = member
-
-const userName = getGithubUserName(github_url)
-const { avatar_url } = await getUserInfos(userName)
 ---
 
 <div class="flex w-full flex-col items-center space-y-4">
   <img
-    src={avatar_url}
+    src={member.image_url}
     alt={member.first_name}
     class="aspect-square size-36 rounded-full object-cover ring ring-orange ring-offset-4 ring-offset-white dark:ring-offset-slate-950"
     loading="eager"
@@ -33,9 +26,13 @@ const { avatar_url } = await getUserInfos(userName)
     <a href={member.linkedin_url}>
       <LucideLinkedin size={20} />
     </a>
-    <a href={member.github_url}>
-      <LucideGithub size={20} />
-    </a>
+    {
+      member.github_url && (
+        <a href={member.github_url}>
+          <LucideGithub size={20} />
+        </a>
+      )
+    }
     <a href={`mailto:${member.email}`}>
       <Mail size={20} />
     </a>

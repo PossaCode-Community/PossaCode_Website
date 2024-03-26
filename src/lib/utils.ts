@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getGithubUserName(url: string) {
+  if (!url) return
   return url.replace(/^https:\/\/github\.com\/|\/$/g, '')
 }
 
@@ -19,7 +20,7 @@ export async function getUserInfos(username: string) {
       )
     }
 
-    return await response.json()
+    return response.json()
   } catch (error) {
     console.error(error)
   }

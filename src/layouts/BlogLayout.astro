@@ -8,10 +8,13 @@ import { Share2 } from 'lucide-react'
 
 const { data } = Astro.props as FrontMatterProps
 
-const { title, description } = data
+const { title, description, hero_image } = data
 ---
 
-<BaseLayout title={data.title} description={data.description}>
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  ogImage={hero_image}>
   <article class="container max-w-4xl divide-y-2 py-32">
     <div class="w-full space-y-4 py-6 text-center">
       <Image

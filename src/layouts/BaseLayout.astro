@@ -2,25 +2,17 @@
 import '@/styles/globals.css'
 import '@fontsource-variable/inter'
 
-import { MetaData } from '@/data/siteConfig'
+import SEOHead from '@/components/SEOHead.astro'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 
-const {
-  title = MetaData.title,
-  description = MetaData.description,
-  // ogImage = MetaData.ogImage,
-} = Astro.props as typeof MetaData
+const { title, description, ogImage } = Astro.props
 ---
 
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <SEOHead title={title} description={description} ogImage={ogImage} />
   </head>
   <body>
     <Header />
