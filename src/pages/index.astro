@@ -325,12 +325,4 @@ const LastFourPosts = (await getCollection('blog'))
     background-image: url('../content/images/background-vector.png');
     @apply bg-cover bg-center bg-no-repeat;
   }
-
-  section ul::-webkit-scrollbar {
-    @apply h-0 max-w-[200px] cursor-pointer overflow-hidden rounded-full md:h-2;
-  }
-
-  section ul::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-gray-400;
-  }
 </style>

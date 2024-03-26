@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets'
+
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { MetaData } from '@/data/siteConfig'
+
+import PageNotFound from '@/content/images/page-not-found.svg'
+import Button from '@/components/Button.astro'
+---
+
+<BaseLayout title={`Page not found - ${MetaData.title}`}>
+  <section class="py-32">
+    <div class="container flex flex-col items-center space-y-8">
+      <div class="mx-auto max-w-sm">
+        <Image src={PageNotFound} alt="404" />
+      </div>
+
+      <Button href="/" text="Retourner à l'accueil" />
+    </div>
+  </section>
+</BaseLayout>

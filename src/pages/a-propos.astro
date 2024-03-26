@@ -5,12 +5,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import MemberCard from '@/components/MemberCard.astro'
 
 import { MetaData } from '@/data/siteConfig'
+import type { MemeberType } from '@/types'
 
 import HeroImage from '@/content/images/hero-bg.png'
+import CollaborationIllustration from '@/content/images/collaboration.svg'
 
 const response = await fetch(`${Astro.url.origin}/api/get-members.json`)
 
-const members = await response.json()
+const members = (await response.json()) as MemeberType[]
 ---
 
 <BaseLayout title={`A propos - ${MetaData.title}`}>
@@ -43,28 +45,45 @@ const members = await response.json()
   </div>
 
   <div class="container space-y-20 py-20">
-    <div class="space-y-6">
-      <h2 class="text-healding-2 font-semibold uppercase">Notre mission</h2>
-      <p class="max-w-5xl">
-        Notre combat, c’est la lutte pour l’égalité des chances par des actions
-        de prévention du décrochage scolaire. Notre but est de permettre à tous
-        les élèves d’aimer apprendre. Nous intervenons chaque année auprès de
-        120 000 élèves du CM2 à la 3e , dans les territoires les moins favorisés
-        mais aussi de plus en plus dans des territoires ruraux, partout où
-        l’orientation des jeunes est contrainte par manque d’information, de
-        soutien familial ou de modèles inspirants. Nous déployons des programmes
-        pédagogiques très innovants, qui sont coanimés dans la salle de classe
-        par un binôme de volontaires Énergie
-      </p>
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div class="space-y-6">
+        <h2 class="text-healding-2 font-semibold uppercase">Notre mission</h2>
+        <p class="max-w-4xl">
+          Notre combat, c’est la lutte pour l’égalité des chances par des
+          actions de prévention du décrochage scolaire. Notre but est de
+          permettre à tous les élèves d’aimer apprendre. Nous intervenons chaque
+          année auprès de 120 000 élèves du CM2 à la 3e , dans les territoires
+          les moins favorisés mais aussi de plus en plus dans des territoires
+          ruraux, partout où l’orientation des jeunes est contrainte par manque
+          d’information, de soutien familial ou de modèles inspirants. Nous
+          déployons des programmes pédagogiques très innovants, qui sont
+          coanimés dans la salle de classe par un binôme de volontaires Énergie
+        </p>
+      </div>
+
+      <div class="hidden md:block">
+        <Image
+          src={CollaborationIllustration}
+          alt="Collaboration"
+          class="ml-auto block w-2/3"
+        />
+      </div>
     </div>
 
     <div class="space-y-10">
       <h2 class="text-healding-2 font-semibold uppercase">Notre equipe</h2>
 
-      <div
-        class="grid grid-cols-[repeat(auto-fill,_minmax(260px,_1fr))] gap-10">
-        {members.map((member: any) => <MemberCard member={member} />)}
-      </div>
+      <ul
+        role="list"
+        class="flex snap-x snap-mandatory gap-x-8 overflow-auto py-4">
+        {
+          members.map((member: any) => (
+            <li class="flex-[0_0_260px] snap-center snap-always">
+              <MemberCard member={member} />
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </BaseLayout>

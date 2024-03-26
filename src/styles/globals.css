@@ -112,6 +112,10 @@
   article #content a {
     @apply underline decoration-orange underline-offset-2;
   }
+
+  ul::-webkit-scrollbar {
+    @apply hidden;
+  }
 }
 
 @layer utilities {

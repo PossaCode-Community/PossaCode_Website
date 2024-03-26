@@ -8,3 +8,16 @@ export type FrontMatterProps = {
     updatedDate?: Date
   }
 }
+
+export type MemeberType = {
+  id: number
+  first_name: string
+  last_name: string
+  role: string | null
+  profession: string
+  email: string
+  image_url: string
+  linkedin_url: string | null
+  github_url: string
+  createdAt: Date
+}
