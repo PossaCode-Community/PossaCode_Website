@@ -23,7 +23,7 @@ export const MobileNavigation = () => {
           />
         </svg>
       </SheetTrigger>
-      <SheetContent className="flex h-full w-full flex-col justify-start rounded-tl-[50px] px-11 pt-36">
+      <SheetContent className="flex h-full flex-col justify-start  px-11 pt-36">
         <ul className="flex flex-col space-y-6">
           {NavLinks.map((navLink) => (
             <li key={navLink.href}>
