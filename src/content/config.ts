@@ -19,7 +19,7 @@ export const collections = {
             message:
               'Please provide a very descriptif description at least 12 characters',
           })
-          .max(170),
+          .max(160),
         hero_image: image().refine((image) => image.format === 'png' || 'jpg'),
         hero_alt: z.string(),
         pubDate: z.date(),
