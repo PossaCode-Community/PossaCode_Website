@@ -10,10 +10,10 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <BaseLayout title="PossaCode - Blog">
-  <div class="container max-w-6xl py-32">
+  <div class="container py-32">
     <h2 class="text-healding-2 font-semibold uppercase">Evenements</h2>
 
-    <p class="my-6">
+    <p class="my-6 lg:max-w-6xl">
       L'extrait standard de Lorem Ipsum utilisé depuis le XVIè siècle est
       reproduit ci-dessous pour les curieux. Les sections 1.10.32 et 1.10.33 du
       "De Finibus Bonorum et Malorum" de Cicéron sont aussi reproduites dans
@@ -21,7 +21,7 @@ const posts = (await getCollection('blog')).sort(
       Rackham (1914).
     </p>
 
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
       {
         posts.map((post) => (
           <a href={`/blogs/${post.slug}`}>

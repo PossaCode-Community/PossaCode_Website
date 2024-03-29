@@ -23,17 +23,17 @@ const { member } = Astro.props
   </div>
 
   <di class="flex items-center space-x-4">
-    <a href={member.linkedin_url}>
+    <a href={member.linkedin_url} aria-label={member.linkedin_url}>
       <LucideLinkedin size={20} />
     </a>
     {
       member.github_url && (
-        <a href={member.github_url}>
+        <a href={member.github_url} aria-label={member.github_url}>
           <LucideGithub size={20} />
         </a>
       )
     }
-    <a href={`mailto:${member.email}`}>
+    <a href={`mailto:${member.email}`} aria-label={member.email}>
       <Mail size={20} />
     </a>
   </di>

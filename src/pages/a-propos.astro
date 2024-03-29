@@ -12,7 +12,9 @@ import CollaborationIllustration from '@/content/images/collaboration.svg'
 
 const response = await fetch(`${Astro.url.origin}/api/get-members.json`)
 
-const members = (await response.json()) as MemeberType[]
+const members = (await response.json()).filter(
+  (member: { role: string }) => member.role
+) as MemeberType[]
 ---
 
 <BaseLayout title={`A propos - ${MetaData.title}`}>
@@ -45,33 +47,48 @@ const members = (await response.json()) as MemeberType[]
   </div>
 
   <div class="container space-y-20 py-20">
-    <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
       <div class="space-y-6">
         <h2 class="text-healding-2 font-semibold uppercase">Notre mission</h2>
-        <p class="max-w-4xl">
+        <p class="lg:max-w-4xl">
           Notre combat, c’est la lutte pour l’égalité des chances par des
           actions de prévention du décrochage scolaire. Notre but est de
-          permettre à tous les élèves d’aimer apprendre. Nous intervenons chaque
-          année auprès de 120 000 élèves du CM2 à la 3e , dans les territoires
-          les moins favorisés mais aussi de plus en plus dans des territoires
-          ruraux, partout où l’orientation des jeunes est contrainte par manque
-          d’information, de soutien familial ou de modèles inspirants. Nous
-          déployons des programmes pédagogiques très innovants, qui sont
-          coanimés dans la salle de classe par un binôme de volontaires Énergie
+          permettre à tous les élèves d’aimer apprendre. Nous déployons des
+          programmes pédagogiques très innovants, qui sont coanimés dans la
+          salle de classe par un binôme de volontaires Énergie.
+        </p>
+
+        <p class="lg:max-w-4xl">
+          Nous intervenons chaque année auprès de 120 000 élèves du CM2 à la
+          3e , dans les territoires les moins favorisés mais aussi de plus en
+          plus dans des territoires ruraux, partout où l’orientation des jeunes
+          est contrainte par manque d’information, de soutien familial ou de
+          modèles inspirants.
         </p>
       </div>
 
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         <Image
           src={CollaborationIllustration}
           alt="Collaboration"
           class="ml-auto block w-2/3"
+          loading="eager"
+          quality="high"
         />
       </div>
     </div>
 
     <div class="space-y-10">
-      <h2 class="text-healding-2 font-semibold uppercase">Notre equipe</h2>
+      <div class="space-y-6">
+        <h2 class="text-healding-2 font-semibold uppercase">Notre equipe</h2>
+        <p class="lg:max-w-4xl">
+          Nous intervenons chaque année auprès de 120 000 élèves du CM2 à la
+          3e , dans les territoires les moins favorisés mais aussi de plus en
+          plus dans des territoires ruraux, partout où l’orientation des jeunes
+          est contrainte par manque d’information, de soutien familial ou de
+          modèles inspirants.
+        </p>
+      </div>
 
       <ul
         role="list"
