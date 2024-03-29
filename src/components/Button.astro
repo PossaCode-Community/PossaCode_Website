@@ -8,10 +8,11 @@ type Props = {
   className?: string
 }
 
-const { href, text, className } = Astro.props
+const { href, text, className, ...rest } = Astro.props
 ---
 
 <a
+  {...rest}
   href={href}
   aria-label={text}
   aria-current={href === Astro.url.pathname ? 'page' : undefined}
