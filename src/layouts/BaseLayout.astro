@@ -1,9 +1,7 @@
 ---
-import 'aos/dist/aos.css'
 import '@/styles/globals.css'
 import '@fontsource-variable/inter'
 
-import { ViewTransitions } from 'astro:transitions'
 import SEOHead from '@/components/SEOHead.astro'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
@@ -15,20 +13,12 @@ const { title, description, ogImage } = Astro.props
   <head>
     <meta charset="utf-8" />
     <SEOHead title={title} description={description} ogImage={ogImage} />
-    <ViewTransitions />
   </head>
-
   <body>
     <Header />
     <main class="flex-grow">
       <slot />
     </main>
     <Footer />
-    <script>
-      import { aosInit } from '@/lib/aos'
-      aosInit()
-
-      document.addEventListener('astro:after-swap', aosInit)
-    </script>
   </body>
 </html>

@@ -1,7 +1,7 @@
-import { db, Member, isNotNull } from 'astro:db'
+import { db, Member } from 'astro:db'
 
 export async function GET() {
-  const members = await db.select().from(Member).where(isNotNull(Member.role))
+  const members = await db.select().from(Member)
 
   if (!members) {
     return new Response(
