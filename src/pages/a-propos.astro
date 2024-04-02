@@ -13,14 +13,15 @@ import CollaborationIllustration from '@/content/images/collaboration.svg'
 const response = await fetch(`${Astro.url.origin}/api/get-members.json`)
 
 const members = (await response.json()).filter(
-  (member: { role: string }) => member.role
+  (member: { role: string }) => member.role,
 ) as MemeberType[]
 ---
 
 <BaseLayout title={`A propos - ${MetaData.title}`}>
   <div class="relative flex h-[250px] items-center justify-center md:h-[350px]">
     <h2
-      class="absolute z-10 mt-10 text-center text-healding-2 font-semibold uppercase text-white">
+      class="absolute z-10 mt-10 text-center text-healding-2 font-semibold uppercase text-white"
+    >
       Qui sommes-nous ?
     </h2>
 
@@ -92,7 +93,8 @@ const members = (await response.json()).filter(
 
       <ul
         role="list"
-        class="flex snap-x snap-mandatory gap-x-8 overflow-auto py-4">
+        class="flex snap-x snap-mandatory gap-x-8 overflow-auto py-4"
+      >
         {
           members.map((member: any) => (
             <li class="flex-[0_0_260px] snap-center snap-always">
